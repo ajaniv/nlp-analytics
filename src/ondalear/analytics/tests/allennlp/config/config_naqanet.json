@@ -1,0 +1,8 @@
+{
+    "naqanet-reading-comprehension": {
+        "archive_file": "https://storage.googleapis.com/allennlp-public-models/naqanet-2019.04.29-fixed-weight-names.tar.gz",
+        "model_name": "machine-comprehension",
+        "max_request_length": 25819,
+        "primary_output_key": "answer"
+    }
+}
