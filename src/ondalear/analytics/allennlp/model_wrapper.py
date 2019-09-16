@@ -9,7 +9,7 @@ from allennlp.predictors import Predictor
 from allennlp.models.archival import load_archive
 from ondalear.analytics.models import (MODEL_PRIMARY_OUTPUT_KEY,
                                        register,
-                                       AbstractModelWrapper, 
+                                       AbstractModelWrapper,
                                        AbstractModelConfig)
 
 
@@ -66,7 +66,7 @@ class AllenNLPModelWrapper(AbstractModelWrapper):
     @overrides
     def convert_model_input(self, model_input):
         return dict(passage=model_input['text_reference'],
-                    question=model_input['text_auxiliary'] )
+                    question=model_input['text_auxiliary'])
 
 class AllenNLPModelConfig(AbstractModelConfig):
     """AllenNLP model configuration class"""
