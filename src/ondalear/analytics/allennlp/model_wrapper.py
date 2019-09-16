@@ -7,7 +7,10 @@ import json
 from overrides import overrides
 from allennlp.predictors import Predictor
 from allennlp.models.archival import load_archive
-from ondalear.analytics.models import AbstractModelWrapper, AbstractModelConfig, register
+from ondalear.analytics.models import (MODEL_PRIMARY_OUTPUT_KEY,
+                                       register,
+                                       AbstractModelWrapper, 
+                                       AbstractModelConfig)
 
 
 _logger = logging.getLogger(__name__)
@@ -55,11 +58,15 @@ class AllenNLPModelWrapper(AbstractModelWrapper):
         _logger.info('begin model analysis: %s', blob)
 
         model_output = self.model.predict_json(model_input)
+        model_output[MODEL_PRIMARY_OUTPUT_KEY] = model_output[self.config.primary_output_key]
 
         _logger.info('end model analysis: %s', blob)
         return model_output
 
-
+    @overrides
+    def convert_model_input(self, model_input):
+        return dict(passage=model_input['text_reference'],
+                    question=model_input['text_auxiliary'] )
 
 class AllenNLPModelConfig(AbstractModelConfig):
     """AllenNLP model configuration class"""

@@ -30,6 +30,10 @@ class AbstractModelWrapper(ABC):
         """create the model from archive"""
 
     @abstractmethod
+    def convert_model_input(self, model_input):
+        """convert model input to native format"""
+
+    @abstractmethod
     def analyze(self, model_input, model_params=None):
         """perform model analysis on the model input using run time parameters"""
 

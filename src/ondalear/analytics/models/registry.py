@@ -21,4 +21,3 @@ def find(family, name):
         return _model_cache[family][name]
     except KeyError:
         _logger.error('model %s of family %s not found', name, family)
-

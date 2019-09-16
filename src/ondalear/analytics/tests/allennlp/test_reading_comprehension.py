@@ -8,7 +8,7 @@ from ondalear.analytics.config.common.log import initialize as log_init
 from ondalear.analytics.allennlp import (initialize,
                                          ALLENNLP_MODEL_FAMILY,
                                          ALLENNLP_MODEL_BDAF,
-                                         ALLENNLP_MODEL_NAQNAET)
+                                         ALLENNLP_MODEL_BDAF_NAQNAET)
 from ondalear.analytics.models import find
 
 # initialize logging
@@ -82,7 +82,7 @@ class TestNAQANET(AbstractQuestionTest):
     """Test NAWANET reading comphrension model"""
     EXPECTED_ANSWER = {'answer_type': 'count', 'count': 2}
     CONFIG_FILE = 'config_naqanet.json'
-    MODEL_NAME = ALLENNLP_MODEL_NAQNAET
+    MODEL_NAME = ALLENNLP_MODEL_BDAF_NAQNAET
     OUTPUT_KEY = 'answer'
 
     def test_answer_question(self):
