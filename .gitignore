@@ -1,0 +1,13 @@
+# ide
+.vscode
+
+# logging
+logs/
+*.log
+
+
+# python
+.eggs/
+.coverage
+
+
